@@ -226,40 +226,54 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-6 py-24">
-          <div className="relative overflow-hidden rounded-[34px] border border-cyan-300/20 bg-cyan-300/[0.055] p-8 text-center shadow-[0_0_80px_rgba(34,211,238,0.11)] md:p-14">
-            <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent" />
-            <p className="font-mono text-sm uppercase tracking-[0.28em] text-cyan-100">Open Channel</p>
-            <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-tight text-white md:text-6xl">
-              Let&apos;s build something intelligent.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Interested in AI research, collaboration, or development projects?
-              Let&apos;s connect and create impactful technology together.
-            </p>
+       <section id="contact" className="mx-auto max-w-7xl px-6 py-24">
+  <div className="relative overflow-hidden rounded-[34px] border border-cyan-300/20 bg-cyan-300/[0.055] p-8 text-center shadow-[0_0_80px_rgba(34,211,238,0.11)] md:p-14">
+    
+    <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent" />
 
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              {['Email Me', 'GitHub', 'LinkedIn'].map((item, index) => (
-                <a
-                  key={item}
-                  href={index === 0 ? 'mailto:' : '#top'}
-                  className={
-                    index === 0
-                      ? 'rounded-full bg-cyan-300 px-7 py-3 font-bold text-slate-950 transition hover:bg-cyan-200'
-                      : 'rounded-full border border-white/15 bg-white/[0.03] px-7 py-3 font-bold text-slate-100 transition hover:border-fuchsia-300/60 hover:text-fuchsia-100'
-                  }
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
+    <div className="absolute -top-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
 
-      <footer className="border-t border-white/10 px-6 py-8 text-center font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
-        © 2026 Rehnaf Leon / AI & Computer Vision Portfolio
-      </footer>
+    <p className="font-mono text-sm uppercase tracking-[0.28em] text-cyan-100">
+      Open Channel
+    </p>
+
+    <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-tight text-white md:text-6xl">
+      Let&apos;s Build The Future With AI
+    </h2>
+
+    <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+      Passionate about Artificial Intelligence, Computer Vision, and Deep
+      Learning research. Open to collaboration, research opportunities,
+      innovative projects, and impactful technology development.
+    </p>
+
+    <div className="mt-12 flex flex-wrap justify-center gap-5">
+      
+      <a
+        href="mailto:rehnafleon@gmail.com"
+        className="rounded-full bg-cyan-300 px-8 py-4 font-bold text-slate-950 transition duration-300 hover:scale-105 hover:bg-cyan-200 hover:shadow-[0_0_35px_rgba(103,232,249,0.45)]"
+      >
+        Email Me
+      </a>
+
+      <a
+        href="https://github.com/viperleon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-fuchsia-300/60 hover:bg-fuchsia-400/10 hover:text-fuchsia-100 hover:shadow-[0_0_30px_rgba(217,70,239,0.25)]"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/rayhan-amin-0a3537302"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-cyan-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]"
+      >
+        LinkedIn
+      </a>
+
     </div>
-  )
-}
+  </div>
+</section>
