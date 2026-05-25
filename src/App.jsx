@@ -274,9 +274,9 @@ export default function Portfolio() {
         LinkedIn
       </a>
 
-      
+
       <a
-        href="https://facebook.com/yourprofile"
+        href="https://www.facebook.com/rehnafleon"
         target="_blank"
         rel="noopener noreferrer"
       >
