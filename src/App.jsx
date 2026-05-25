@@ -274,6 +274,15 @@ export default function Portfolio() {
         LinkedIn
       </a>
 
+      
+      <a
+        href="https://facebook.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
     </div>
   </div>
 </section>
