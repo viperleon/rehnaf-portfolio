@@ -1,6 +1,25 @@
+import { useEffect, useState } from 'react'
+import dp from './assets/dp.jpg'
 import profile from './assets/leon.jpg'
+import me from './assets/me.jpg'
 
 export default function Portfolio() {
+  const profileImages = [
+    { src: profile, alt: 'Rehnaf Leon profile portrait' },
+    { src: dp, alt: 'Rehnaf Leon alternate portrait' },
+    { src: me, alt: 'Rehnaf Leon casual portrait' },
+  ]
+
+  const [activeProfileImage, setActiveProfileImage] = useState(0)
+
+  useEffect(() => {
+    const sliderTimer = window.setInterval(() => {
+      setActiveProfileImage((currentImage) => (currentImage + 1) % profileImages.length)
+    }, 2000)
+
+    return () => window.clearInterval(sliderTimer)
+  }, [profileImages.length])
+
   const projects = [
     {
       title: 'Road Damage Detection',
@@ -112,16 +131,41 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[440px]">
-            <div className="absolute -inset-6 rounded-[36px] border border-cyan-300/10 bg-cyan-300/[0.03] blur-sm" />
-            <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.045] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.55)] backdrop-blur-xl">
+          <div className="relative mx-auto w-full max-w-[420px]">
+            <div className="absolute -inset-6 rounded-full border border-cyan-300/10 bg-cyan-300/[0.03] blur-sm" />
+            <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.045] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.55)] backdrop-blur-xl">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[26px] border border-cyan-200/20 bg-slate-950">
-                <img src={profile} alt="Rehnaf Leon" className="h-full w-full object-cover opacity-90 saturate-125" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030407] via-transparent to-cyan-300/10" />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <p className="font-mono text-xs uppercase tracking-[0.28em] text-cyan-100">AI Developer</p>
-                  <h2 className="mt-2 text-3xl font-black text-white">Research / Vision / Innovation</h2>
+              <div className="relative mx-auto aspect-square w-full max-w-[330px]">
+                <div className="absolute -inset-5 rounded-full bg-[conic-gradient(from_120deg,rgba(34,211,238,0.95),rgba(217,70,239,0.35),rgba(16,185,129,0.45),rgba(34,211,238,0.95))] opacity-80 blur-xl" />
+                <div className="absolute -inset-2 rounded-full border border-cyan-200/60 shadow-[0_0_32px_rgba(34,211,238,0.7),inset_0_0_28px_rgba(34,211,238,0.22)]" />
+                <div className="relative h-full overflow-hidden rounded-full border-4 border-cyan-200/70 bg-slate-950 shadow-[0_0_50px_rgba(34,211,238,0.45)]">
+                  {profileImages.map((image, index) => (
+                    <img
+                      key={image.src}
+                      src={image.src}
+                      alt={image.alt}
+                      className={`absolute inset-0 h-full w-full object-cover saturate-125 transition-opacity duration-1000 ease-in-out ${
+                        activeProfileImage === index ? 'opacity-95' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                  <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_18%,transparent_44%,rgba(3,4,7,0.1)_64%,rgba(3,4,7,0.72)_100%)]" />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/20" />
+                </div>
+              </div>
+
+              <div className="mt-7 text-center">
+                <p className="font-mono text-xs uppercase tracking-[0.28em] text-cyan-100">AI Developer</p>
+                <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">Research / Vision / Innovation</h2>
+                <div className="mt-4 flex justify-center gap-2">
+                  {profileImages.map((image, index) => (
+                    <span
+                      key={`${image.src}-indicator`}
+                      className={`h-1.5 rounded-full transition-all duration-500 ${
+                        activeProfileImage === index ? 'w-7 bg-cyan-200 shadow-[0_0_14px_rgba(103,232,249,0.85)]' : 'w-1.5 bg-white/25'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -226,68 +270,62 @@ export default function Portfolio() {
           </div>
         </section>
 
-       <section id="contact" className="mx-auto max-w-7xl px-6 py-24">
-  <div className="relative overflow-hidden rounded-[34px] border border-cyan-300/20 bg-cyan-300/[0.055] p-8 text-center shadow-[0_0_80px_rgba(34,211,238,0.11)] md:p-14">
-    
-    <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent" />
+        <section id="contact" className="mx-auto max-w-7xl px-6 py-24">
+          <div className="relative overflow-hidden rounded-[34px] border border-cyan-300/20 bg-cyan-300/[0.055] p-8 text-center shadow-[0_0_80px_rgba(34,211,238,0.11)] md:p-14">
+            <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent" />
+            <div className="absolute -top-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
 
-    <div className="absolute -top-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-3xl" />
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-cyan-100">
+              Open Channel
+            </p>
 
-    <p className="font-mono text-sm uppercase tracking-[0.28em] text-cyan-100">
-      Open Channel
-    </p>
+            <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-tight text-white md:text-6xl">
+              Let&apos;s Build The Future With AI
+            </h2>
 
-    <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-black tracking-tight text-white md:text-6xl">
-      Let&apos;s Build The Future With AI
-    </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              Passionate about Artificial Intelligence, Computer Vision, and Deep
+              Learning research. Open to collaboration, research opportunities,
+              innovative projects, and impactful technology development.
+            </p>
 
-    <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-      Passionate about Artificial Intelligence, Computer Vision, and Deep
-      Learning research. Open to collaboration, research opportunities,
-      innovative projects, and impactful technology development.
-    </p>
+            <div className="mt-12 flex flex-wrap justify-center gap-5">
+              <a
+                href="mailto:rehnafleon@gmail.com"
+                className="rounded-full bg-cyan-300 px-8 py-4 font-bold text-slate-950 transition duration-300 hover:scale-105 hover:bg-cyan-200 hover:shadow-[0_0_35px_rgba(103,232,249,0.45)]"
+              >
+                Email Me
+              </a>
 
-    <div className="mt-12 flex flex-wrap justify-center gap-5">
-      
-      <a
-        href="mailto:rehnafleon@gmail.com"
-        className="rounded-full bg-cyan-300 px-8 py-4 font-bold text-slate-950 transition duration-300 hover:scale-105 hover:bg-cyan-200 hover:shadow-[0_0_35px_rgba(103,232,249,0.45)]"
-      >
-        Email Me
-      </a>
+              <a
+                href="https://github.com/viperleon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-fuchsia-300/60 hover:bg-fuchsia-400/10 hover:text-fuchsia-100 hover:shadow-[0_0_30px_rgba(217,70,239,0.25)]"
+              >
+                GitHub
+              </a>
 
-      <a
-        href="https://github.com/viperleon"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-fuchsia-300/60 hover:bg-fuchsia-400/10 hover:text-fuchsia-100 hover:shadow-[0_0_30px_rgba(217,70,239,0.25)]"
-      >
-        GitHub
-      </a>
+              <a
+                href="https://www.linkedin.com/in/rayhan-amin-0a3537302"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-cyan-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]"
+              >
+                LinkedIn
+              </a>
 
-      <a
-        href="https://www.linkedin.com/in/rayhan-amin-0a3537302"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-cyan-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]"
-      >
-        LinkedIn
-      </a>
-
-
-      <a
-        href="https://www.facebook.com/rehnafleon"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-cyan-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]"
-
-      >
-        Facebook
-      </a>
-
-    </div>
-  </div>
-</section>
+              <a
+                href="https://www.facebook.com/rehnafleon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-blue-300/60 hover:bg-blue-400/10 hover:text-blue-100 hover:shadow-[0_0_30px_rgba(96,165,250,0.25)]"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )
