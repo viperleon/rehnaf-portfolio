@@ -279,6 +279,8 @@ export default function Portfolio() {
         href="https://www.facebook.com/rehnafleon"
         target="_blank"
         rel="noopener noreferrer"
+        className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 font-bold text-slate-100 transition duration-300 hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-cyan-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]"
+
       >
         Facebook
       </a>
